@@ -124,24 +124,24 @@ def sol_1(x, y, D):                             # Retourne l'alignement optimal 
     liste = []
 
     while i != 0 or j != 0:                     # Tant qu'on est pas arrive au debut
-        val1 = m.inf
-        val2 = m.inf
-        val3 = m.inf
+        val_del = m.inf
+        val_sub = m.inf
+        val_ins = m.inf
         if (i-1>=0):                                                            # Si on ne deborde pas sur le haut du tableau
             if (D[i-1][j] + c_del == D[i][j]):                                  # Si la valeur est coherente
-                val1 = D[i-1][j]                                                # On recupere la valeur associe a la suppression
+                val_del = D[i-1][j]                                                # On recupere la valeur associe a la suppression
             if (j-1>=0 and D[i-1][j-1] + c_sub(x[i-1], y[j-1]) == D[i][j]):     # Si on ne deborde pas sur la gauche du tableau et la valeur est coherente
-                val2 = D[i-1][j-1]                                              # On recupere la valeur associe a la substitution
+                val_sub = D[i-1][j-1]                                              # On recupere la valeur associe a la substitution
         if (j-1 >= 0 and D[i][j-1] + c_ins == D[i][j]):                         # Si on ne deborde pas sur la gauche du tableau et la valeur est coherente
-            val3 = D[i][j-1]                                                    # On recupere la valeur associe a l'insertion
-        if min(val1, val2, val3) == val2:       # Substitution l'emporte (On donne la priorité à la substitution si plusieurs min)
+            val_ins = D[i][j-1]                                                    # On recupere la valeur associe a l'insertion
+        if min(val_del, val_sub, val_ins) == val_sub:       # Substitution l'emporte (On donne la priorité à la substitution si plusieurs min)
             liste.append([x[i-1],y[j-1]])       # On fait la substitution
             i-=1                                # On se deplace d'une ligne vers le haut dans le tableau
             j-=1                                # On se deplace d'une colonne vers la gauche dans le tableau
-        elif min(val1, val2, val3) == val1:     # Suppression l'emporte
+        elif min(val_del, val_sub, val_ins) == val_del:     # Suppression l'emporte
             liste.append([x[i-1],'_'])          # gap dans ybarre
             i-=1                                # On se deplace d'une ligne vers le haut dans le tableau
-        elif min(val1, val2, val3) == val3:     # Insertion l'emporte
+        elif min(val_del, val_sub, val_ins) == val_ins:     # Insertion l'emporte
             liste.append(['_',y[j-1]])          # gap dans xbarre
             j-=1                                # On se deplace d'une colonne vers la gauche dans le tableau
     liste.reverse()                             # On inverse les chaines obtenues car on a commence depuis la fin
@@ -230,21 +230,21 @@ def coupure(x, y):                      # Retourne index_coupure, où couper y
         D1 = dist_2(x, y)[1]                # ligne i
         D2 = dist_2(x[:-1], y)[1]           # ligne i-1
 
-        val1 = m.inf
-        val2 = m.inf
-        val3 = m.inf
+        val_del = m.inf
+        val_sub = m.inf
+        val_ins = m.inf
         if (D2[index_coupure] + c_del == D1[index_coupure]):            # Si la valeur est coherente
-            val1 = D2[index_coupure]                                    # On recupere la valeur associe a la suppression
+            val_del = D2[index_coupure]                                    # On recupere la valeur associe a la suppression
         if (index_coupure - 1 >= 0):                                    # Si on ne deborde pas sur la gauche du tableau
             if(D2[index_coupure - 1] + c_sub(x[-1], y[index_coupure - 1]) == D1[index_coupure]):    # Si la valeur est coherente
-                val2 = D2[index_coupure - 1]                            # On recupere la valeur associe a la substitution
+                val_sub = D2[index_coupure - 1]                            # On recupere la valeur associe a la substitution
             if (D1[index_coupure - 1] + c_ins == D1[index_coupure]):    # Si la valeur est coherente
-                val3 = D1[index_coupure - 1]                            # On recupere la valeur associe a l'insertion
+                val_ins = D1[index_coupure - 1]                            # On recupere la valeur associe a l'insertion
 
-        if min(val1, val2, val3) != val1:           # Si ce n'est pas une suppression
+        if min(val_del, val_sub, val_ins) != val_del:           # Si ce n'est pas une suppression
             index_coupure -= 1                      # On s'est deplace d'une colonne vers la gauche
 
-        if min(val1, val2, val3) != val3:           # Si ce n'est pas une insertion
+        if min(val_del, val_sub, val_ins) != val_ins:           # Si ce n'est pas une insertion
             x = x[:-1]                              # On s'est deplace d'une ligne vers le haut
 
     return index_coupure
