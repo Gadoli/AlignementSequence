@@ -51,23 +51,56 @@ def trace_dist_1(x, y): # Affichage propre de dist_1
     print("DIST_1 sur :\n", "x : ", x, "\n", "y : ", y, "\n", "--->")
 
     res = dist_1(x, y)
+    tab = res[1]
+    cout = res[0]
     for i in range (len(x) + 1):
         for j in range (len(y) + 1):
-            print(res[1][i][j], end=' ')
+            print(tab[i][j], end=' ')
         print()
+    print("d(x_barre, y_barre) = ", cout)
+    print()
+
+def trace_dist_2(x, y): # Affichage propre de dist_12
+    print("DIST_2 sur :\n", "x : ", x, "\n", "y : ", y, "\n", "--->")
+
+    res = dist_2(x, y)
+    tab = res[1]
+    cout = res[0]
+    for i in range (len(y) + 1):
+        print(tab[i], end=' ')
+    print()
+    print("d(x_barre, y_barre) = ", cout)
     print()
 
 def trace_sol_1(x, y):  # Affichage propre de sol_1
     print("SOL_1 sur :\n", "x : ", x, "\n", "y : ", y, "\n", "--->")
     D = dist_1(x, y)[1]
     res = sol_1(x, y, D)
-    listx = []
-    listy = []
+    x_barre = []
+    y_barre = []
     for i in range (len(res)):
-        listx.append(res[i][0])
-        listy.append(res[i][1])
-    print(listx)
-    print(listy)
+        x_barre.append(res[i][0])
+        y_barre.append(res[i][1])
+    print(x_barre)
+    print(y_barre)
+    print()
+
+
+def trace_sol_2(x, y):  # Affichage propre de sol_2
+    print("SOL_2 sur :\n", "x : ", x, "\n", "y : ", y, "\n", "--->")
+    res = sol_2(x, y)
+    x_barre = res[0]
+    y_barre = res[1]
+    print(x_barre)
+    print(y_barre)
+    print()
+
+def trace_calcul_cout(x, y):  # Affichage propre de calcul_cout
+    print("calcul_cout sur :\n", "x : ", x, "\n", "y : ", y, "\n", "--->")
+    res = sol_2(x, y)
+    x_barre = res[0]
+    y_barre = res[0]
+    print("Cout de a chaine retourne par SOL_2(x, y) : ", calcul_cout(x_barre, y_barre))
     print()
 
 def calcul_cout(x, y):                      # Retourne C(x,y) (pour verifier que les chaines de sol ont un cout d(x;y)
@@ -284,44 +317,57 @@ def coupure_non_opti(x, y):             # Utilisation de DIST_1 au lieu de DIST_
 #Tests
 # =============================================================================
 
-# TEST DIST_1 et SOL_1
-print("TEST DIST_1 ET SOL_1\n")
+# TEST DIST_1, DIST_2, SOL_1, SOL_2
+print("TEST DIST_1, DIST_2, SOL_1, SOL_2\n")
 
 print("Exemple page 13\n")
 x = ['A', 'T', 'T', 'G', 'T', 'A']
 y = ['A', 'T', 'C', 'T', 'T', 'A']
 trace_dist_1(x, y)
+trace_dist_2(x, y)
+trace_calcul_cout(x, y)
 trace_sol_1(x, y)
+trace_sol_2(x, y)
 
 # print("Fichier au choix")
 # adn_7 = open_fichier("Inst_0001000_7.adn")
 # x = adn_7[0]
 # y = adn_7[1]
 # trace_dist_1(x, y)
+# trace_dist_2(x, y)
+# trace_calcul_cout(x, y)
 # trace_sol_1(x, y)
-# x_sol = prog_dyn(x, y)[1]
-# y_sol = prog_dyn(x, y)[2]
-# print("calcul_cout : ", calcul_cout(x_sol, y_sol))
+# trace_sol_2(x, y)
 
-# print("Exemple page 12 COUT A MODIFIER !! --> cf ligne 39")
-# x = ['A', 'G', 'T', 'A', 'C', 'G', 'C', 'A']
-# y = ['T', 'A', 'T', 'G', 'C']
-# #x = ['A', 'G', 'T', 'A']
-# #y = ['T', 'A']
-# trace_dist_1(x, y)
-# trace_sol_1(x, y)
 
-print("FIN TEST DIST_1 SOL_1\n")
-# FIN TEST DIST_1 SOL_1
+print("Exemple page 12")
+c_sub_comp = 1          # Couts particuliers pour cet exemple
+c_sub_incomp = 1
+x = ['A', 'G', 'T', 'A', 'C', 'G', 'C', 'A']
+y = ['T', 'A', 'T', 'G', 'C']
+#x = ['A', 'G', 'T', 'A']
+#y = ['T', 'A']
+trace_dist_1(x, y)
+trace_dist_2(x, y)
+trace_calcul_cout(x, y)
+trace_sol_1(x, y)
+trace_sol_2(x, y)
+c_sub_comp = 3      # Remet les couts normaux
+c_sub_incomp = 4
+
+print("FIN TEST DIST_1, DIST_2, SOL_1, SOL_2\n")
+# FIN TEST DIST_1, DIST_2, SOL_1, SOL_2
 
 
 
 # TEST COUPURE
 print("TEST COUPURE\n")
 
-print("Exemple page 12 COUT A MODIFIER !! --> cf ligne 39\n")
-# x = ['A', 'G', 'T', 'A', 'C', 'G', 'C', 'A']
-# y = ['T', 'A', 'T', 'G', 'C']
+print("Exemple page 12")
+c_sub_comp = 1          # Couts particuliers pour cet exemple
+c_sub_incomp = 1
+x = ['A', 'G', 'T', 'A', 'C', 'G', 'C', 'A']
+y = ['T', 'A', 'T', 'G', 'C']
 
 # x = ['A', 'G', 'T', 'A']
 # y = ['T', 'A']
@@ -338,22 +384,11 @@ print("Exemple page 12 COUT A MODIFIER !! --> cf ligne 39\n")
 print("Test de coupure_non_opti : ", coupure_non_opti(x, y))
 print("Test de coupure : ", coupure(x, y))
 
+c_sub_comp = 3      # Remet les couts normaux
+c_sub_incomp = 4
+
 print("FIN TEST COUPURE\n")
 # FIN TEST COUPURE
-
-
-
-# TEST SOL_2
-print("TEST SOL_2\n")
-
-# x = ['A', 'G', 'T', 'A', 'C', 'G', 'C', 'A']
-# y = ['T', 'A', 'T', 'G', 'C']
-
-trace_sol_1(x, y)
-print(sol_2(x,y))
-
-print("FIN TEST SOL_2\n")
-# FIN TEST SOL_2
 
 
 
@@ -704,7 +739,7 @@ Mémoire totale : 16340796 KiB soit 15,5837974548 GiB
 # =============================================================================
 # Courbes pour les differentes tâches
 # =============================================================================
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 
 x_axis = [10, 10, 10, 12, 12, 12, 13, 13, 13, 14, 14, 14, 15, 15, 15, 20, 20, 50, 50, 50, 100, 100, 100, 500, 500, 500, 1000, 1000, 1000, 2000, 2000, 2000, 3000, 3000, 3000,  3000, 5000]
 y_PROG_DYN = []
@@ -771,76 +806,76 @@ L = ["Inst_0000010_7.adn" ,
      "Inst_0100000_11.adn",
      "Inst_0100000_76.adn"]
 
-stop=False
-stop_2 = False
-for stuff in L:
-    print(stuff)
-    adn = open_fichier(stuff)
-    x,y = adn[0],adn[1]
-    
-    if stuff == "Inst_0005000_4.adn":   #peut aller jusqu'à Inst_0010000 10 000
-        stop=True
-    if stop:
-        break
-    
-    start = time.time()
-    prog_dyn(x,y)
-    res_1 = time.time()-start
-    y_PROG_DYN.append(res_1)
-    print("\t",res_1)
-    
-    
-    start = time.time()
-    dist_2(x,y)
-    res_3 = time.time()-start
-    y_DIST_2.append(res_3)
-    print("\t",res_3)
-    
-    if stuff=="Inst_0000500_8.adn":         #à partir de Inst_0001000.. cela prend énormement de temps
-        stop_2=True
-    if stop_2:
-        y_SOL_2.append(0)
-        continue
-    
-    start = time.time()
-    sol_2(x,y)
-    res_2 = time.time()-start
-    y_SOL_2.append(res_2)
-    print("\t",res_2)
-    
-    print("\n_____________________________\n")
-
-
-plt.figure(1)
-plt.plot(x_axis, y_PROG_DYN, label="PROG_DYN")
-plt.title("Consommation CPU")
-plt.xlabel("Taille du mot x")
-plt.ylabel("Temps (s)")
-plt.legend()
-plt.show()
-
-plt.figure(2)
-plt.plot(x_axis, y_DIST_2, label = "DIST_2")
-plt.title("Consommation CPU")
-plt.xlabel("Taille du mot x")
-plt.ylabel("Temps (s)")
-plt.legend()
-plt.show()
-
-plt.figure(3)
-plt.plot(x_axis, y_SOL_2, label = "SOL_2")
-plt.title("Consommation CPU")
-plt.xlabel("Taille du mot x")
-plt.ylabel("Temps (s)")
-plt.legend()
-plt.show()
-
-plt.figure(4)
-plt.plot(x_axis, y_PROG_DYN, label="PROG_DYN")
-plt.plot(x_axis, y_DIST_2, label = "DIST_2")
-plt.plot(x_axis, y_SOL_2, label = "SOL_2")
-plt.title("Consommation CPU")
-plt.xlabel("Taille du mot x")
-plt.ylabel("Temps (s)")
-plt.legend()
-plt.show()
+# stop=False
+# stop_2 = False
+# for stuff in L:
+#     print(stuff)
+#     adn = open_fichier(stuff)
+#     x,y = adn[0],adn[1]
+#
+#     if stuff == "Inst_0005000_4.adn":   #peut aller jusqu'à Inst_0010000 10 000
+#         stop=True
+#     if stop:
+#         break
+#
+#     start = time.time()
+#     prog_dyn(x,y)
+#     res_1 = time.time()-start
+#     y_PROG_DYN.append(res_1)
+#     print("\t",res_1)
+#
+#
+#     start = time.time()
+#     dist_2(x,y)
+#     res_3 = time.time()-start
+#     y_DIST_2.append(res_3)
+#     print("\t",res_3)
+#
+#     if stuff=="Inst_0000500_8.adn":         #à partir de Inst_0001000.. cela prend énormement de temps
+#         stop_2=True
+#     if stop_2:
+#         y_SOL_2.append(0)
+#         continue
+#
+#     start = time.time()
+#     sol_2(x,y)
+#     res_2 = time.time()-start
+#     y_SOL_2.append(res_2)
+#     print("\t",res_2)
+#
+#     print("\n_____________________________\n")
+#
+#
+# plt.figure(1)
+# plt.plot(x_axis, y_PROG_DYN, label="PROG_DYN")
+# plt.title("Consommation CPU")
+# plt.xlabel("Taille du mot x")
+# plt.ylabel("Temps (s)")
+# plt.legend()
+# plt.show()
+#
+# plt.figure(2)
+# plt.plot(x_axis, y_DIST_2, label = "DIST_2")
+# plt.title("Consommation CPU")
+# plt.xlabel("Taille du mot x")
+# plt.ylabel("Temps (s)")
+# plt.legend()
+# plt.show()
+#
+# plt.figure(3)
+# plt.plot(x_axis, y_SOL_2, label = "SOL_2")
+# plt.title("Consommation CPU")
+# plt.xlabel("Taille du mot x")
+# plt.ylabel("Temps (s)")
+# plt.legend()
+# plt.show()
+#
+# plt.figure(4)
+# plt.plot(x_axis, y_PROG_DYN, label="PROG_DYN")
+# plt.plot(x_axis, y_DIST_2, label = "DIST_2")
+# plt.plot(x_axis, y_SOL_2, label = "SOL_2")
+# plt.title("Consommation CPU")
+# plt.xlabel("Taille du mot x")
+# plt.ylabel("Temps (s)")
+# plt.legend()
+# plt.show()
