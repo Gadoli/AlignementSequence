@@ -147,43 +147,6 @@ def sol_1(x, y, D):                             # Retourne l'alignement optimal 
     liste.reverse()                             # On inverse les chaines obtenues car on a commence depuis la fin
     return liste
 
-# def sol_1v2(x, y, D):         # MEILLEUR OU PAS ?
-#     i = len(x)                                                                  # On commence depuis la fin du tableau
-#     j = len(y)
-#     liste = []
-#     while i != 0 or j != 0:                                                     # Tant qu'on est pas arrive au debut
-#         val1 = m.inf
-#         val2 = m.inf
-#         val3 = m.inf
-#         if (i-1>=0):                                                            # Si on ne deborde pas sur le haut du tableau
-#             if (D[i-1][j] + c_del == D[i][j]):
-#                 val1 = D[i-1][j]                                                # On recupere la valeur associe a la suppression
-#             if (j-1>=0 and D[i-1][j-1] + c_sub(x[i-1], y[j-1]) == D[i][j]):     # Si on ne deborde pas sur la gauche du tableau
-#                 val2 = D[i-1][j-1]                                              # On recupere la valeur associe a la substitution
-#         if (j-1 >= 0 and D[i][j-1] + c_ins == D[i][j]):                         # Si on ne deborde pas sur la gauche du tableau
-#             val3 = D[i][j-1]                                                    # On recupere la valeur associe a l'insertion
-#
-#         if min(val1, val2, val3) == val2:                                       # Substitution l'emporte (On donne la priorité à la substitution si plusieurs min)
-# #            if len(y)!=0:
-# #                if c_sub(x[i-1],y[j-1])!=4:            # Si ce n'est pas une substitution incompatible
-#                     liste.append([x[i-1],y[j-1]])       # On fait la substitution
-#                     i-=1                                # On se deplace d'une ligne vers le haut dans le tableau
-#                     j-=1                                # On se deplace d'une colonne vers la gauche dans le tableau
-# #                elif len(x)>len(y):                     # Sinon si x plus grand que y
-# #                    liste.append([x[i-1],'_'])          # On fait une suppression, gap dans ybarre
-# #                    i-=1                                # On se deplace d'une ligne vers le haut dans le tableau
-# #                elif len(x)<=len(y):                    # Sinon si y plus grand que y
-# #                    liste.append(['_',y[j-1]])          # On fait une insertion, gap dans xbarre
-# #                    j-=1                                # On se deplace d'une colonne vers la gauche dans le tableau
-#         elif min(val1, val2, val3) == val1:             # Suppression l'emporte
-#             liste.append([x[i-1],'_'])                  # gap dans ybarre
-#             i-=1                                        # On se deplace d'une ligne vers le haut dans le tableau
-#         elif min(val1, val2, val3) == val3:             # Insertion l'emporte
-#             liste.append(['_',y[j-1]])                  # gap dans xbarre
-#             j-=1                                        # On se deplace d'une colonne vers la gauche dans le tableau
-#     liste.reverse()                                     # On inverse les chaines obtenues car on a commence depuis la fin
-#     return liste                                        # On retourne l'alignement de cout minimal
-
 def prog_dyn(x,y):                      # Retourne d(x,y) et l'alignement associe
     rep = dist_1(x,y)                   # On calcule d(x,y) et le tableau associe
     x_sol = []
@@ -243,27 +206,18 @@ def sol_2(x,y):                                     # Retourne l'alignement opti
             return [x, align_lettre_mot(x, y)[1]]
     return R
 
-# def sol_2_non_opti(x,y):
-#     i=int(len(x)/2)
-# #    if (len(x)!=0 and len(y)!=0):
-#     if len(x) > 1 and len(y) >= 1:      #J'ai add ca
-#         j=coupure(x, y)
-# #    else:
-# #        if len(x)==0:
-# #            return [mot_gaps(len(y)),y]
-# #        elif len(y)==0:
-# #            return [x,mot_gaps(len(x))]
-#
-#     if (len(x)<=1 or len(y)<=1):
-#         res = prog_dyn(x,y)
-# #        print("feuille")
-#         return [res[1],res[2]]
-#     else:
-# #        print("feuille")
-#         R_1 = sol_2(x[0:i],y[0:j])
-#         R_2 = sol_2(x[i:len(x)],y[j:len(y)])
-#         R = [R_1[0]+R_2[0],R_1[1]+R_2[1]]
-#     return R
+def sol_2_non_opti(x,y):                # Utilisation de PROG_DYN au lieu de mot_gaps et align_lettre_mot
+    i=int(len(x)/2)
+    if len(x) > 1 and len(y) >= 1:
+        j=coupure(x, y)
+    if (len(x)<=1 or len(y)<=1):
+        res = prog_dyn(x,y)
+        return [res[1],res[2]]
+    else:
+        R_1 = sol_2(x[0:i],y[0:j])
+        R_2 = sol_2(x[i:len(x)],y[j:len(y)])
+        R = [R_1[0]+R_2[0],R_1[1]+R_2[1]]
+    return R
 
 
 
@@ -295,7 +249,7 @@ def coupure(x, y):                      # Retourne index_coupure, où couper y
 
     return index_coupure
 
-def coupure_non_opti(x, y):
+def coupure_non_opti(x, y):             # Utilisation de DIST_1 au lieu de DIST_2
     i = int(len(x)/2)
     D = dist_1(x, y)
     L = sol_1(x,y,D[1])
