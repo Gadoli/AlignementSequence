@@ -258,7 +258,7 @@ def coupure(x, y):                                # Retourne index_coupure, où 
         
     return index_coupure
 
-def coupure_non_opti(x, y):             # Utilisation de DIST_1 au lieu de DIST_2 (ne marche pas finalement, pas d'antifail)
+def coupure_non_opti(x, y):             # Utilisation de DIST_1 au lieu de DIST_2
     i = int(len(x)/2)
     D = dist_1(x, y)
     L = sol_1(x,y,D[1])
