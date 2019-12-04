@@ -236,8 +236,8 @@ def coupure(x, y):                      # Retourne index_coupure, où couper y
         val_sub = m.inf
         val_ins = m.inf
         
-        index_antifail = index_coupure
-        x_antifail = x_cp.copy()
+        index_antifail = index_coupure                                  # Sert a verifier si index_coupure a change a la fin
+        x_antifail = x_cp.copy()                                        # Sert a verifier su x_cp a change a la fin
         
         if (D2[index_coupure] + c_del == D1[index_coupure]):            # Si la valeur est coherente
             val_del = D2[index_coupure]                                    # On recupere la valeur associe a la suppression
@@ -253,12 +253,12 @@ def coupure(x, y):                      # Retourne index_coupure, où couper y
         if min(val_del, val_sub, val_ins) != val_ins:           # Si ce n'est pas une insertion
             x_cp = x_cp[:-1]                              # On s'est deplace d'une ligne vers le haut
         
-        if (index_antifail==index_coupure) and (x_antifail==x_cp):
-            x_cp = x_cp[:-1]
+        if (index_antifail==index_coupure) and (x_antifail==x_cp):         # Cas ou min(val_del, val_sub, val_ins) = val_del = v_ins
+            x_cp = x_cp[:-1]                                               # On force une suppression
         
     return index_coupure
 
-def coupure_non_opti(x, y):             # Utilisation de DIST_1 au lieu de DIST_2
+def coupure_non_opti(x, y):             # Utilisation de DIST_1 au lieu de DIST_2 (ne marche pas finalement, pas d'antifail)
     i = int(len(x)/2)
     D = dist_1(x, y)
     L = sol_1(x,y,D[1])
@@ -320,8 +320,8 @@ print("FIN TEST DIST_1 SOL_1\n")
 print("TEST COUPURE\n")
 
 print("Exemple page 12 COUT A MODIFIER !! --> cf ligne 39\n")
-x = ['A', 'G', 'T', 'A', 'C', 'G', 'C', 'A']
-y = ['T', 'A', 'T', 'G', 'C']
+# x = ['A', 'G', 'T', 'A', 'C', 'G', 'C', 'A']
+# y = ['T', 'A', 'T', 'G', 'C']
 
 # x = ['A', 'G', 'T', 'A']
 # y = ['T', 'A']
