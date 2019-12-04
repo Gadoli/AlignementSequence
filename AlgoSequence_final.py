@@ -393,132 +393,135 @@ print("FIN TEST COUPURE\n")
 
 #---------- Question 4 ----------
 ##|x|=15 et |y|=10
-# n_x=15
-# m_y=10
-# import scipy.special as ss
-# sum=0
-# for i in range(1,m_y+1):
-#    sum+= ss.binom(n_x+i,i)*ss.binom(n_x,n_x+i-m_y)
-# print(sum)
+print("---------- Question 4 ----------")
+n_x=15
+m_y=10
+import scipy.special as ss
+sum=0
+for i in range(1,m_y+1):
+   sum+= ss.binom(n_x+i,i)*ss.binom(n_x,n_x+i-m_y)
+print(sum)
 
 
 
 #---------- Question 29 ----------
-# L = ["Inst_0000010_7.adn" ,
-#     "Inst_0000010_8.adn" ,
-#     "Inst_0000010_44.adn" ,
-#     "Inst_0000012_13.adn" ,
-#     "Inst_0000012_32.adn" ,
-#     "Inst_0000012_56.adn" ,
-#     "Inst_0000013_45.adn" ,
-#     "Inst_0000013_56.adn" ,
-#     "Inst_0000013_89.adn" ,
-#     "Inst_0000014_7.adn" ,
-#     "Inst_0000014_23.adn" ,
-#     "Inst_0000014_83.adn" ,
-#     "Inst_0000015_2.adn" ,
-#     "Inst_0000015_4.adn" ,
-#     "Inst_0000015_76.adn" ,
-#     "Inst_0000020_8.adn" ,
-#     "Inst_0000020_17.adn" ,
-#     "Inst_0000020_32.adn",
-#     "Inst_0000050_3.adn",
-#     "Inst_0000050_9.adn",
-#     "Inst_0000050_77.adn",
-#     "Inst_0000100_3.adn",
-#     "Inst_0000100_7.adn",
-#     "Inst_0000100_44.adn",
-#     "Inst_0000500_3.adn",
-#     "Inst_0000500_8.adn",
-#     "Inst_0000500_88.adn",
-#     "Inst_0001000_2.adn",
-#     "Inst_0001000_7.adn",
-#     "Inst_0001000_23.adn" ,
-#     "Inst_0002000_3.adn" ,
-#     "Inst_0002000_8.adn" ,
-#     "Inst_0002000_44.adn",
-#     "Inst_0003000_1.adn",
-#     "Inst_0003000_10.adn",
-#     "Inst_0003000_25.adn",
-#     "Inst_0003000_45.adn",
-#     "Inst_0005000_4.adn",
-#     "Inst_0005000_32.adn",
-#     "Inst_0005000_33.adn",
-#     "Inst_0008000_32.adn",
-#     "Inst_0008000_54.adn",
-#     "Inst_0008000_98.adn",
-#     "Inst_0010000_7.adn",
-#     "Inst_0010000_8.adn",
-#     "Inst_0010000_50.adn",
-#     "Inst_0015000_3.adn",
-#     "Inst_0015000_20.adn",
-#     "Inst_0015000_30.adn",
-#     "Inst_0020000_5.adn",
-#     "Inst_0020000_64.adn",
-#     "Inst_0020000_77.adn",
-#     "Inst_0050000_6.adn",
-#     "Inst_0050000_63.adn",
-#     "Inst_0050000_88.adn",
-#     "Inst_0100000_3.adn",
-#     "Inst_0100000_11.adn",
-#     "Inst_0100000_76.adn"]
-#
-# RES_29 = []
-# for stuff in L:
-#    print(stuff)
-#    adn = open_fichier(stuff)
-#    x,y = adn[0],adn[1]
-#    start = time.time()
-#    prog_dyn(x,y)
-#    res_1 = time.time()-start
-#    print("\t", "Temps pour PROG_DYN : ", res_1)
-#    start = time.time()
-#    sol_2(x,y)
-#    res_2 = time.time()-start
-#    print("\t", "Temps pour SOL_2 : ", res_2)
-#    if res_1!=0:
-#        print("Rapport SOL_2 / PROG_DYN : ", res_2/res_1)
-#        RES_29.append(res_2/res_1)
-#    print("\n_____________________________\n")
+print("---------- Question 29 ----------")
+L = ["Inst_0000010_7.adn" ,
+    "Inst_0000010_8.adn" ,
+    "Inst_0000010_44.adn" ,
+    "Inst_0000012_13.adn" ,
+    "Inst_0000012_32.adn" ,
+    "Inst_0000012_56.adn" ,
+    "Inst_0000013_45.adn" ,
+    "Inst_0000013_56.adn" ,
+    "Inst_0000013_89.adn" ,
+    "Inst_0000014_7.adn" ,
+    "Inst_0000014_23.adn" ,
+    "Inst_0000014_83.adn" ,
+    "Inst_0000015_2.adn" ,
+    "Inst_0000015_4.adn" ,
+    "Inst_0000015_76.adn" ,
+    "Inst_0000020_8.adn" ,
+    "Inst_0000020_17.adn" ,
+    "Inst_0000020_32.adn",
+    "Inst_0000050_3.adn",
+    "Inst_0000050_9.adn",
+    "Inst_0000050_77.adn",
+    "Inst_0000100_3.adn",
+    "Inst_0000100_7.adn",
+    "Inst_0000100_44.adn",
+    "Inst_0000500_3.adn",
+    "Inst_0000500_8.adn",
+    "Inst_0000500_88.adn",
+    "Inst_0001000_2.adn",
+    "Inst_0001000_7.adn",
+    "Inst_0001000_23.adn" ,
+    "Inst_0002000_3.adn" ,
+    "Inst_0002000_8.adn" ,
+    "Inst_0002000_44.adn",
+    "Inst_0003000_1.adn",
+    "Inst_0003000_10.adn",
+    "Inst_0003000_25.adn",
+    "Inst_0003000_45.adn",
+    "Inst_0005000_4.adn",
+    "Inst_0005000_32.adn",
+    "Inst_0005000_33.adn",
+    "Inst_0008000_32.adn",
+    "Inst_0008000_54.adn",
+    "Inst_0008000_98.adn",
+    "Inst_0010000_7.adn",
+    "Inst_0010000_8.adn",
+    "Inst_0010000_50.adn",
+    "Inst_0015000_3.adn",
+    "Inst_0015000_20.adn",
+    "Inst_0015000_30.adn",
+    "Inst_0020000_5.adn",
+    "Inst_0020000_64.adn",
+    "Inst_0020000_77.adn",
+    "Inst_0050000_6.adn",
+    "Inst_0050000_63.adn",
+    "Inst_0050000_88.adn",
+    "Inst_0100000_3.adn",
+    "Inst_0100000_11.adn",
+    "Inst_0100000_76.adn"]
+
+RES_29 = []
+for stuff in L:
+   print(stuff)
+   adn = open_fichier(stuff)
+   x,y = adn[0],adn[1]
+   start = time.time()
+   prog_dyn(x,y)
+   res_1 = time.time()-start
+   print("\t", "Temps pour PROG_DYN : ", res_1)
+   start = time.time()
+   sol_2(x,y)
+   res_2 = time.time()-start
+   print("\t", "Temps pour SOL_2 : ", res_2)
+   if res_1!=0:
+       print("Rapport SOL_2 / PROG_DYN : ", res_2/res_1)
+       RES_29.append(res_2/res_1)
+   print("\n_____________________________\n")
 
 
 # ---------- Question 30 ----------
-# L = ["Inst_0000010_7" ,
-#     "Inst_0000010_8" ,
-#     "Inst_0000010_44" ,
-#     "Inst_0000012_13" ,
-#     "Inst_0000012_32" ,
-#     "Inst_0000012_56" ,
-#     "Inst_0000013_45" ,
-#     "Inst_0000013_56" ,
-#     "Inst_0000013_89" ,
-#     "Inst_0000014_7" ,
-#     "Inst_0000014_23" ,
-#     "Inst_0000014_83" ,
-#     "Inst_0000015_2" ,
-#     "Inst_0000015_4" ,
-#     "Inst_0000015_76" ,
-#     "Inst_0000020_8" ,
-#     "Inst_0000020_17" ,
-#     "Inst_0001000_23" ,
-#     "Inst_0002000_3" ,
-#     "Inst_0002000_8" ,
-#     "Inst_0002000_44"]
-#
-# def open_fichier_q_30(file):
-#    fichier = open("Q_30/"+file+".adn","r")
-#    Reader = []
-#    Reader = fichier.read().split("\n")
-#    x=Reader[2].split()
-#    y=Reader[3].split()
-#    fichier.close()
-#    return [x,y]
-# RES = []
-# for stuff in L:
-#    adn = open_fichier_q_30(stuff)
-#    x,y = adn[0],adn[1]
-#    RES.append(dist_2(x,y)[0] - (len(x) - len(y)) * c_del)
-# print(RES)
+print("---------- Question 30 ----------")
+L = ["Inst_0000010_7" ,
+    "Inst_0000010_8" ,
+    "Inst_0000010_44" ,
+    "Inst_0000012_13" ,
+    "Inst_0000012_32" ,
+    "Inst_0000012_56" ,
+    "Inst_0000013_45" ,
+    "Inst_0000013_56" ,
+    "Inst_0000013_89" ,
+    "Inst_0000014_7" ,
+    "Inst_0000014_23" ,
+    "Inst_0000014_83" ,
+    "Inst_0000015_2" ,
+    "Inst_0000015_4" ,
+    "Inst_0000015_76" ,
+    "Inst_0000020_8" ,
+    "Inst_0000020_17" ,
+    "Inst_0001000_23" ,
+    "Inst_0002000_3" ,
+    "Inst_0002000_8" ,
+    "Inst_0002000_44"]
+
+def open_fichier_q_30(file):
+   fichier = open("Q_30/"+file+".adn","r")
+   Reader = []
+   Reader = fichier.read().split("\n")
+   x=Reader[2].split()
+   y=Reader[3].split()
+   fichier.close()
+   return [x,y]
+RES = []
+for stuff in L:
+   adn = open_fichier_q_30(stuff)
+   x,y = adn[0],adn[1]
+   RES.append(dist_2(x,y)[0] - (len(x) - len(y)) * c_del)
+print(RES)
 
 
 """
@@ -559,7 +562,7 @@ Donc l'éxécution pour Inst_0000012_32, utilise environ 15,9465MiB
 
 """
 ---------- TACHE B ----------
-*tests sur plsrs instances
+tests sur plusieurs instances
 adn_7 = open_fichier("Inst_0000010_44.adn")
 print(prog_dyn(adn_7 [0],adn_7 [1]))
 
@@ -645,143 +648,143 @@ Mémoire totale : 16340796 KiB soit 15,5837974548 GiB
 # =============================================================================
 # Courbes pour les differentes tâches
 # =============================================================================
-# import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 
-# x_axis = [10, 10, 10, 12, 12, 12, 13, 13, 13, 14, 14, 14, 15, 15, 15, 20, 20, 50, 50, 50, 100, 100, 100, 500, 500, 500, 1000, 1000, 1000, 2000, 2000, 2000, 3000, 3000, 3000,  3000, 5000]
-# y_PROG_DYN = []
-# y_DIST_2 = []
-# y_SOL_2 = []
-#
-#
-# L = ["Inst_0000010_7.adn" ,
-#      "Inst_0000010_8.adn" ,
-#      "Inst_0000010_44.adn" ,
-#      "Inst_0000012_13.adn" ,
-#      "Inst_0000012_32.adn" ,
-#      "Inst_0000012_56.adn" ,
-#      "Inst_0000013_45.adn" ,
-#      "Inst_0000013_56.adn" ,
-#      "Inst_0000013_89.adn" ,
-#      "Inst_0000014_7.adn" ,
-#      "Inst_0000014_23.adn" ,
-#      "Inst_0000014_83.adn" ,
-#      "Inst_0000015_2.adn" ,
-#      "Inst_0000015_4.adn" ,
-#      "Inst_0000015_76.adn" ,
-#      "Inst_0000020_8.adn" ,
-#      "Inst_0000020_17.adn" ,
-#      "Inst_0000020_32.adn",
-#      "Inst_0000050_3.adn",
-#      "Inst_0000050_9.adn",
-#      "Inst_0000050_77.adn",
-#      "Inst_0000100_3.adn",
-#      "Inst_0000100_7.adn",
-#      "Inst_0000100_44.adn",
-#      "Inst_0000500_3.adn",  #~100s pour sol_2
-#      "Inst_0000500_8.adn",
-#      "Inst_0000500_88.adn",
-#      "Inst_0001000_2.adn",
-#      "Inst_0001000_7.adn",
-#      "Inst_0001000_23.adn" ,
-#      "Inst_0002000_3.adn" ,
-#      "Inst_0002000_8.adn" ,
-#      "Inst_0002000_44.adn",
-#      "Inst_0003000_1.adn",
-#      "Inst_0003000_10.adn",
-#      "Inst_0003000_25.adn",
-#      "Inst_0003000_45.adn", #10s pr prog_dyn, 7s pr dist_2
-#      "Inst_0005000_4.adn",
-#      "Inst_0005000_32.adn",
-#      "Inst_0005000_33.adn",
-#      "Inst_0008000_32.adn",
-#      "Inst_0008000_54.adn",
-#      "Inst_0008000_98.adn",
-#      "Inst_0010000_7.adn",
-#      "Inst_0010000_8.adn",
-#      "Inst_0010000_50.adn",
-#      "Inst_0015000_3.adn",
-#      "Inst_0015000_20.adn",
-#      "Inst_0015000_30.adn",
-#      "Inst_0020000_5.adn",
-#      "Inst_0020000_64.adn",
-#      "Inst_0020000_77.adn",
-#      "Inst_0050000_6.adn",
-#      "Inst_0050000_63.adn",
-#      "Inst_0050000_88.adn",
-#      "Inst_0100000_3.adn",
-#      "Inst_0100000_11.adn",
-#      "Inst_0100000_76.adn"]
-#
-# stop=False
-# stop_2 = False
-# for stuff in L:
-#     print(stuff)
-#     adn = open_fichier(stuff)
-#     x,y = adn[0],adn[1]
-#
-#     if stuff == "Inst_0005000_4.adn":   #peut aller jusqu'à Inst_0010000 10 000
-#         stop=True
-#     if stop:
-#         break
-#
-#     start = time.time()
-#     prog_dyn(x,y)
-#     res_1 = time.time()-start
-#     y_PROG_DYN.append(res_1)
-#     print("\t",res_1)
-#
-#
-#     start = time.time()
-#     dist_2(x,y)
-#     res_3 = time.time()-start
-#     y_DIST_2.append(res_3)
-#     print("\t",res_3)
-#
-#     if stuff=="Inst_0000500_8.adn":         #à partir de Inst_0001000.. cela prend énormement de temps
-#         stop_2=True
-#     if stop_2:
-#         y_SOL_2.append(0)
-#         continue
-#
-#     start = time.time()
-#     sol_2(x,y)
-#     res_2 = time.time()-start
-#     y_SOL_2.append(res_2)
-#     print("\t",res_2)
-#
-#     print("\n_____________________________\n")
-#
-#
-# plt.figure(1)
-# plt.plot(x_axis, y_PROG_DYN, label="PROG_DYN")
-# plt.title("Consommation CPU")
-# plt.xlabel("Taille du mot x")
-# plt.ylabel("Temps (s)")
-# plt.legend()
-# plt.show()
-#
-# plt.figure(2)
-# plt.plot(x_axis, y_DIST_2, label = "DIST_2")
-# plt.title("Consommation CPU")
-# plt.xlabel("Taille du mot x")
-# plt.ylabel("Temps (s)")
-# plt.legend()
-# plt.show()
-#
-# plt.figure(3)
-# plt.plot(x_axis, y_SOL_2, label = "SOL_2")
-# plt.title("Consommation CPU")
-# plt.xlabel("Taille du mot x")
-# plt.ylabel("Temps (s)")
-# plt.legend()
-# plt.show()
-#
-# plt.figure(4)
-# plt.plot(x_axis, y_PROG_DYN, label="PROG_DYN")
-# plt.plot(x_axis, y_DIST_2, label = "DIST_2")
-# plt.plot(x_axis, y_SOL_2, label = "SOL_2")
-# plt.title("Consommation CPU")
-# plt.xlabel("Taille du mot x")
-# plt.ylabel("Temps (s)")
-# plt.legend()
-# plt.show()
+x_axis = [10, 10, 10, 12, 12, 12, 13, 13, 13, 14, 14, 14, 15, 15, 15, 20, 20, 50, 50, 50, 100, 100, 100, 500, 500, 500, 1000, 1000, 1000, 2000, 2000, 2000, 3000, 3000, 3000,  3000, 5000]
+y_PROG_DYN = []
+y_DIST_2 = []
+y_SOL_2 = []
+
+
+L = ["Inst_0000010_7.adn" ,
+     "Inst_0000010_8.adn" ,
+     "Inst_0000010_44.adn" ,
+     "Inst_0000012_13.adn" ,
+     "Inst_0000012_32.adn" ,
+     "Inst_0000012_56.adn" ,
+     "Inst_0000013_45.adn" ,
+     "Inst_0000013_56.adn" ,
+     "Inst_0000013_89.adn" ,
+     "Inst_0000014_7.adn" ,
+     "Inst_0000014_23.adn" ,
+     "Inst_0000014_83.adn" ,
+     "Inst_0000015_2.adn" ,
+     "Inst_0000015_4.adn" ,
+     "Inst_0000015_76.adn" ,
+     "Inst_0000020_8.adn" ,
+     "Inst_0000020_17.adn" ,
+     "Inst_0000020_32.adn",
+     "Inst_0000050_3.adn",
+     "Inst_0000050_9.adn",
+     "Inst_0000050_77.adn",
+     "Inst_0000100_3.adn",
+     "Inst_0000100_7.adn",
+     "Inst_0000100_44.adn",
+     "Inst_0000500_3.adn",  #~100s pour sol_2
+     "Inst_0000500_8.adn",
+     "Inst_0000500_88.adn",
+     "Inst_0001000_2.adn",
+     "Inst_0001000_7.adn",
+     "Inst_0001000_23.adn" ,
+     "Inst_0002000_3.adn" ,
+     "Inst_0002000_8.adn" ,
+     "Inst_0002000_44.adn",
+     "Inst_0003000_1.adn",
+     "Inst_0003000_10.adn",
+     "Inst_0003000_25.adn",
+     "Inst_0003000_45.adn", #10s pr prog_dyn, 7s pr dist_2
+     "Inst_0005000_4.adn",
+     "Inst_0005000_32.adn",
+     "Inst_0005000_33.adn",
+     "Inst_0008000_32.adn",
+     "Inst_0008000_54.adn",
+     "Inst_0008000_98.adn",
+     "Inst_0010000_7.adn",
+     "Inst_0010000_8.adn",
+     "Inst_0010000_50.adn",
+     "Inst_0015000_3.adn",
+     "Inst_0015000_20.adn",
+     "Inst_0015000_30.adn",
+     "Inst_0020000_5.adn",
+     "Inst_0020000_64.adn",
+     "Inst_0020000_77.adn",
+     "Inst_0050000_6.adn",
+     "Inst_0050000_63.adn",
+     "Inst_0050000_88.adn",
+     "Inst_0100000_3.adn",
+     "Inst_0100000_11.adn",
+     "Inst_0100000_76.adn"]
+
+stop=False
+stop_2 = False
+for stuff in L:
+    print(stuff)
+    adn = open_fichier(stuff)
+    x,y = adn[0],adn[1]
+
+    if stuff == "Inst_0005000_4.adn":   #peut aller jusqu'à Inst_0010000 10 000
+        stop=True
+    if stop:
+        break
+
+    start = time.time()
+    prog_dyn(x,y)
+    res_1 = time.time()-start
+    y_PROG_DYN.append(res_1)
+    print("\t",res_1)
+
+
+    start = time.time()
+    dist_2(x,y)
+    res_3 = time.time()-start
+    y_DIST_2.append(res_3)
+    print("\t",res_3)
+
+    if stuff=="Inst_0000500_8.adn":         #à partir de Inst_0001000.. cela prend énormement de temps
+        stop_2=True
+    if stop_2:
+        y_SOL_2.append(0)
+        continue
+
+    start = time.time()
+    sol_2(x,y)
+    res_2 = time.time()-start
+    y_SOL_2.append(res_2)
+    print("\t",res_2)
+
+    print("\n_____________________________\n")
+
+
+plt.figure(1)
+plt.plot(x_axis, y_PROG_DYN, label="PROG_DYN")
+plt.title("Consommation CPU")
+plt.xlabel("Taille du mot x")
+plt.ylabel("Temps (s)")
+plt.legend()
+plt.show()
+
+plt.figure(2)
+plt.plot(x_axis, y_DIST_2, label = "DIST_2")
+plt.title("Consommation CPU")
+plt.xlabel("Taille du mot x")
+plt.ylabel("Temps (s)")
+plt.legend()
+plt.show()
+
+plt.figure(3)
+plt.plot(x_axis, y_SOL_2, label = "SOL_2")
+plt.title("Consommation CPU")
+plt.xlabel("Taille du mot x")
+plt.ylabel("Temps (s)")
+plt.legend()
+plt.show()
+
+plt.figure(4)
+plt.plot(x_axis, y_PROG_DYN, label="PROG_DYN")
+plt.plot(x_axis, y_DIST_2, label = "DIST_2")
+plt.plot(x_axis, y_SOL_2, label = "SOL_2")
+plt.title("Consommation CPU")
+plt.xlabel("Taille du mot x")
+plt.ylabel("Temps (s)")
+plt.legend()
+plt.show()
