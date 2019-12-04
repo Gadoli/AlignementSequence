@@ -203,7 +203,7 @@ def sol_2(x,y):                                     # Retourne l'alignement opti
         if(len(y) == 0):                            # Si |y| = 0
             return[x, mot_gaps(len(x))]
         else:                                       # Sinon |y| != 0  donc |x| = 1
-            return [x, align_lettre_mot(x, y)[1]]
+            return align_lettre_mot(x, y)
     return R
 
 def sol_2_non_opti(x,y):                # Utilisation de PROG_DYN au lieu de mot_gaps et align_lettre_mot
@@ -235,6 +235,10 @@ def coupure(x, y):                      # Retourne index_coupure, où couper y
         val_del = m.inf
         val_sub = m.inf
         val_ins = m.inf
+        
+        index_antifail = index_coupure
+        x_antifail = x_cp.copy()
+        
         if (D2[index_coupure] + c_del == D1[index_coupure]):            # Si la valeur est coherente
             val_del = D2[index_coupure]                                    # On recupere la valeur associe a la suppression
         if (index_coupure - 1 >= 0):                                    # Si on ne deborde pas sur la gauche du tableau
@@ -248,7 +252,10 @@ def coupure(x, y):                      # Retourne index_coupure, où couper y
 
         if min(val_del, val_sub, val_ins) != val_ins:           # Si ce n'est pas une insertion
             x_cp = x_cp[:-1]                              # On s'est deplace d'une ligne vers le haut
-
+        
+        if (index_antifail==index_coupure) and (x_antifail==x_cp):
+            x_cp = x_cp[:-1]
+        
     return index_coupure
 
 def coupure_non_opti(x, y):             # Utilisation de DIST_1 au lieu de DIST_2
@@ -383,34 +390,7 @@ print("FIN TEST SOL_2\n")
 
 
 
-
-
-
-
-#Question 4
-#|x|=15 et |y|=10
-#n_x=15
-#m_y=10
-#
-#sum=0
-#for i in range(1,m_y+1):
-#    sum += ((m.factorial(n_x+1))/(m.factorial(i)*m.factorial(m_y-i)*m.factorial(n_x+i-m_y)))
-#print(sum)
-
-#Question 4
-#|x|=15 et |y|=10
-#import
-#n_x=15
-#m_y=10
-#import scipy.special as ss
-#sum=0
-#for i in range(1,m_y+1):
-#    sum+= ss.binom(n_x+i,i)*ss.binom(n_x,n_x+i-m_y)
-#print(sum)
-
-
-
-#Question 2)
+#---------- Question 2 ----------
 # adn_7 = open_fichier("Inst_0000010_44.adn")
 # x = adn_7[0]
 # y = adn_7[1]
@@ -454,11 +434,110 @@ print("FIN TEST SOL_2\n")
 
 
 
+#---------- Question 4 ----------
+#|x|=15 et |y|=10
+#n_x=15
+#m_y=10
+#
+#sum=0
+#for i in range(1,m_y+1):
+#    sum += ((m.factorial(n_x+1))/(m.factorial(i)*m.factorial(m_y-i)*m.factorial(n_x+i-m_y)))
+#print(sum)
+
+#Question 4
+#|x|=15 et |y|=10
+#import
+#n_x=15
+#m_y=10
+#import scipy.special as ss
+#sum=0
+#for i in range(1,m_y+1):
+#    sum+= ss.binom(n_x+i,i)*ss.binom(n_x,n_x+i-m_y)
+#print(sum)
 
 
 
 
 
+
+
+
+#---------- Question 29 ----------
+#L = ["Inst_0000010_7.adn" ,
+#     "Inst_0000010_8.adn" ,
+#     "Inst_0000010_44.adn" ,
+#     "Inst_0000012_13.adn" ,
+#     "Inst_0000012_32.adn" ,
+#     "Inst_0000012_56.adn" ,
+#     "Inst_0000013_45.adn" ,
+#     "Inst_0000013_56.adn" ,
+#     "Inst_0000013_89.adn" ,
+#     "Inst_0000014_7.adn" ,
+#     "Inst_0000014_23.adn" ,
+#     "Inst_0000014_83.adn" ,
+#     "Inst_0000015_2.adn" ,
+#     "Inst_0000015_4.adn" ,
+#     "Inst_0000015_76.adn" ,
+#     "Inst_0000020_8.adn" ,
+#     "Inst_0000020_17.adn" ,
+#     "Inst_0000050_3.adn",
+#     "Inst_0000050_9.adn",
+#     "Inst_0000050_77.adn",
+#     "Inst_0000100_3.adn",
+#     "Inst_0000100_7.adn",
+#     "Inst_0000100_44.adn",
+#     "Inst_0000500_3.adn",
+#     "Inst_0000500_8.adn",
+#     "Inst_0000500_88.adn",
+#     "Inst_0001000_2.adn",
+#     "Inst_0001000_7.adn",
+#     "Inst_0001000_23.adn" ,
+#     "Inst_0002000_3.adn" ,
+#     "Inst_0002000_8.adn" ,
+#     "Inst_0002000_44.adn",
+#     "Inst_0003000_1.adn",
+#     "Inst_0003000_10.adn",
+#     "Inst_0003000_25.adn",
+#     "Inst_0003000_45.adn",
+#     "Inst_0005000_4.adn",
+#     "Inst_0005000_32.adn",
+#     "Inst_0005000_33.adn",
+#     "Inst_0008000_32.adn",
+#     "Inst_0008000_54.adn",
+#     "Inst_0008000_98.adn",
+#     "Inst_0010000_7.adn",
+#     "Inst_0010000_8.adn",
+#     "Inst_0010000_50.adn",
+#     "Inst_0015000_3.adn",
+#     "Inst_0015000_20.adn",
+#     "Inst_0015000_30.adn",
+#     "Inst_0020000_5.adn",
+#     "Inst_0020000_64.adn",
+#     "Inst_0020000_77.adn",
+#     "Inst_0050000_6.adn",
+#     "Inst_0050000_63.adn",
+#     "Inst_0050000_88.adn",
+#     "Inst_0100000_3.adn",
+#     "Inst_0100000_11.adn",
+#     "Inst_0100000_76.adn"]
+#
+#RES_29 = []
+#for stuff in L:
+#    print(stuff)
+#    adn = open_fichier(stuff)
+#    x,y = adn[0],adn[1]
+#    start = time.time()
+#    prog_dyn(x,y)
+#    res_1 = time.time()-start
+#    print("\t",res_1)
+#    start = time.time()
+#    sol_2(x,y)
+#    res_2 = time.time()-start
+#    print("\t",res_2)
+#    if res_1!=0:
+#        print(res_2/res_1)
+#        RES_29.append(res_2/res_1)
+#    print("\n_____________________________\n")
 
 
 #---------- Question 30 ----------
