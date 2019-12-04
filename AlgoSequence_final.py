@@ -270,7 +270,7 @@ def coupure(x, y):                                # Retourne index_coupure, où 
         val_ins = m.inf
         
         index_antifail = index_coupure            # Sert a verifier si index_coupure a change a la fin
-        x_antifail = x_cp.copy()                  # Sert a verifier su x_cp a change a la fin
+        x_antifail = x_cp.copy()                  # Sert a verifier si x_cp a change a la fin
         
         if (D2[index_coupure] + c_del == D1[index_coupure]):               # Si la valeur est coherente
             val_del = D2[index_coupure]                                    # On recupere la valeur associe a la suppression
