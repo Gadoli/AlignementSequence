@@ -527,17 +527,16 @@ print("FIN TEST SOL_2\n")
 #     "Inst_0002000_8" ,
 #     "Inst_0002000_44"]
 #
-# def open_fichier_q_30(file):
-#     fichier = open("Q_30/"+file+".adn","r")
-#     Reader = []
-#     Reader = fichier.read().split("\n")
-#     x=Reader[2].split()
-#     y=Reader[3].split()
-#     fichier.close()
-#     return [x,y]
-#
-# RES = []
-# for stuff in L:
+#def open_fichier_q_30(file):
+#    fichier = open("Q_30/"+file+".adn","r")
+#    Reader = []
+#    Reader = fichier.read().split("\n")
+#    x=Reader[2].split()
+#    y=Reader[3].split()
+#    fichier.close()
+#    return [x,y]
+#RES = []
+#for stuff in L:
 #    adn = open_fichier_q_30(stuff)
 #    x,y = adn[0],adn[1]
 #    RES.append(dist_2(x,y)[0]-(len(x)-len(y))*c_del)
