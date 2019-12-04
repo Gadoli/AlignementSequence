@@ -391,114 +391,20 @@ print("FIN TEST COUPURE\n")
 # FIN TEST COUPURE
 
 
-
-
-
-
-
-
-
-
-# adn_7 = open_fichier("Inst_0001000_7.adn")
-#
-# x = adn_7[0]
-# y = adn_7[1]
-# start = time.time()
-# res_pd = prog_dyn(x,y)
-# print(time.time()-start)
-#
-# start = time.time()
-# res_sol2 = sol_2(x,y)
-# print(time.time()-start)
-#
-# print(" prog dn = sol2 ?",res_pd[1]==res_sol2[0])
-# print(res_pd[2]==res_sol2[1])
-#
-# print([res_pd[1],res_pd[2]])
-# print(res_sol2)
-# print(res_pd[0])
-#
-# print(calcul_cout(res_pd[1],res_pd[2]))
-# print(calcul_cout(res_sol2[0],res_sol2[1]))
-
-
-
-
-
-#---------- Question 2 ----------
-# adn_7 = open_fichier("Inst_0000010_44.adn")
-# x = adn_7[0]
-# y = adn_7[1]
-#start = time.time()
-#print(dist_naif(x, y))
-#print(time.time()-start)
-##x = ['A', 'T', 'T', 'G', 'T', 'A']
-##y = ['A', 'T', 'C', 'T', 'T', 'A']
-##y = ['A', 'T', 'C', 'T', 'T', 'A']
-#
-#start = time.time()
-#print(dist_naif(x, y))
-#print(time.time()-start)
-#
-#start = time.time()
-# dist_1(x, y)
-#print(time.time()-start)
-# trace_dist_1(x, y)
-
-#start = time.time()
-#print(dist_2(x,y))
-#print(time.time()-start)
-
-
-#start = time.time()
-#dist = dist_1(x, y)
-#print(time.time()-start)
-#for i in range (len(dist[1][1])):
-#    for j in range (len(dist[1][i])):
-#        print(dist[1][i][j], end=' ')
-#    print()
-#
-#start = time.time()
-#print(sol_1(x, y, dist[1]))
-#print(time.time()-start)
-
-
-
-#print(mot_gaps(5))
-#print(align_lettre_mot(['G', 'T', 'C', 'T', 'T', 'C'],['A']))
-
-
-
 #---------- Question 4 ----------
-#|x|=15 et |y|=10
-#n_x=15
-#m_y=10
-#
-#sum=0
-#for i in range(1,m_y+1):
-#    sum += ((m.factorial(n_x+1))/(m.factorial(i)*m.factorial(m_y-i)*m.factorial(n_x+i-m_y)))
-#print(sum)
-
-#Question 4
-#|x|=15 et |y|=10
-#import
-#n_x=15
-#m_y=10
-#import scipy.special as ss
-#sum=0
-#for i in range(1,m_y+1):
+##|x|=15 et |y|=10
+# n_x=15
+# m_y=10
+# import scipy.special as ss
+# sum=0
+# for i in range(1,m_y+1):
 #    sum+= ss.binom(n_x+i,i)*ss.binom(n_x,n_x+i-m_y)
-#print(sum)
-
-
-
-
-
+# print(sum)
 
 
 
 #---------- Question 29 ----------
-#L = ["Inst_0000010_7.adn" ,
+# L = ["Inst_0000010_7.adn" ,
 #     "Inst_0000010_8.adn" ,
 #     "Inst_0000010_44.adn" ,
 #     "Inst_0000012_13.adn" ,
@@ -557,27 +463,27 @@ print("FIN TEST COUPURE\n")
 #     "Inst_0100000_11.adn",
 #     "Inst_0100000_76.adn"]
 #
-#RES_29 = []
-#for stuff in L:
+# RES_29 = []
+# for stuff in L:
 #    print(stuff)
 #    adn = open_fichier(stuff)
 #    x,y = adn[0],adn[1]
 #    start = time.time()
 #    prog_dyn(x,y)
 #    res_1 = time.time()-start
-#    print("\t",res_1)
+#    print("\t", "Temps pour PROG_DYN : ", res_1)
 #    start = time.time()
 #    sol_2(x,y)
 #    res_2 = time.time()-start
-#    print("\t",res_2)
+#    print("\t", "Temps pour SOL_2 : ", res_2)
 #    if res_1!=0:
-#        print(res_2/res_1)
+#        print("Rapport SOL_2 / PROG_DYN : ", res_2/res_1)
 #        RES_29.append(res_2/res_1)
 #    print("\n_____________________________\n")
 
 
-#---------- Question 30 ----------
-#L = ["Inst_0000010_7" ,
+# ---------- Question 30 ----------
+# L = ["Inst_0000010_7" ,
 #     "Inst_0000010_8" ,
 #     "Inst_0000010_44" ,
 #     "Inst_0000012_13" ,
@@ -599,7 +505,7 @@ print("FIN TEST COUPURE\n")
 #     "Inst_0002000_8" ,
 #     "Inst_0002000_44"]
 #
-#def open_fichier_q_30(file):
+# def open_fichier_q_30(file):
 #    fichier = open("Q_30/"+file+".adn","r")
 #    Reader = []
 #    Reader = fichier.read().split("\n")
@@ -607,12 +513,12 @@ print("FIN TEST COUPURE\n")
 #    y=Reader[3].split()
 #    fichier.close()
 #    return [x,y]
-#RES = []
-#for stuff in L:
+# RES = []
+# for stuff in L:
 #    adn = open_fichier_q_30(stuff)
 #    x,y = adn[0],adn[1]
-#    RES.append(dist_2(x,y)[0]-(len(x)-len(y))*c_del)
-#print(RES)
+#    RES.append(dist_2(x,y)[0] - (len(x) - len(y)) * c_del)
+# print(RES)
 
 
 """
@@ -741,71 +647,71 @@ Mémoire totale : 16340796 KiB soit 15,5837974548 GiB
 # =============================================================================
 # import matplotlib.pyplot as plt
 
-x_axis = [10, 10, 10, 12, 12, 12, 13, 13, 13, 14, 14, 14, 15, 15, 15, 20, 20, 50, 50, 50, 100, 100, 100, 500, 500, 500, 1000, 1000, 1000, 2000, 2000, 2000, 3000, 3000, 3000,  3000, 5000]
-y_PROG_DYN = []
-y_DIST_2 = []
-y_SOL_2 = []
-
-
-L = ["Inst_0000010_7.adn" ,
-     "Inst_0000010_8.adn" ,
-     "Inst_0000010_44.adn" ,
-     "Inst_0000012_13.adn" ,
-     "Inst_0000012_32.adn" ,
-     "Inst_0000012_56.adn" ,
-     "Inst_0000013_45.adn" ,
-     "Inst_0000013_56.adn" ,
-     "Inst_0000013_89.adn" ,
-     "Inst_0000014_7.adn" ,
-     "Inst_0000014_23.adn" ,
-     "Inst_0000014_83.adn" ,
-     "Inst_0000015_2.adn" ,
-     "Inst_0000015_4.adn" ,
-     "Inst_0000015_76.adn" ,
-     "Inst_0000020_8.adn" ,
-     "Inst_0000020_17.adn" ,
-     "Inst_0000020_32.adn",
-     "Inst_0000050_3.adn",
-     "Inst_0000050_9.adn",
-     "Inst_0000050_77.adn",
-     "Inst_0000100_3.adn",
-     "Inst_0000100_7.adn",
-     "Inst_0000100_44.adn",
-     "Inst_0000500_3.adn",  #~100s pour sol_2
-     "Inst_0000500_8.adn",
-     "Inst_0000500_88.adn",
-     "Inst_0001000_2.adn",
-     "Inst_0001000_7.adn",
-     "Inst_0001000_23.adn" ,
-     "Inst_0002000_3.adn" ,
-     "Inst_0002000_8.adn" ,
-     "Inst_0002000_44.adn",
-     "Inst_0003000_1.adn",
-     "Inst_0003000_10.adn",
-     "Inst_0003000_25.adn",
-     "Inst_0003000_45.adn", #10s pr prog_dyn, 7s pr dist_2
-     "Inst_0005000_4.adn",
-     "Inst_0005000_32.adn",
-     "Inst_0005000_33.adn",
-     "Inst_0008000_32.adn",
-     "Inst_0008000_54.adn",
-     "Inst_0008000_98.adn",
-     "Inst_0010000_7.adn",
-     "Inst_0010000_8.adn",
-     "Inst_0010000_50.adn",
-     "Inst_0015000_3.adn",
-     "Inst_0015000_20.adn",
-     "Inst_0015000_30.adn",
-     "Inst_0020000_5.adn",
-     "Inst_0020000_64.adn",
-     "Inst_0020000_77.adn",
-     "Inst_0050000_6.adn",
-     "Inst_0050000_63.adn",
-     "Inst_0050000_88.adn",
-     "Inst_0100000_3.adn",
-     "Inst_0100000_11.adn",
-     "Inst_0100000_76.adn"]
-
+# x_axis = [10, 10, 10, 12, 12, 12, 13, 13, 13, 14, 14, 14, 15, 15, 15, 20, 20, 50, 50, 50, 100, 100, 100, 500, 500, 500, 1000, 1000, 1000, 2000, 2000, 2000, 3000, 3000, 3000,  3000, 5000]
+# y_PROG_DYN = []
+# y_DIST_2 = []
+# y_SOL_2 = []
+#
+#
+# L = ["Inst_0000010_7.adn" ,
+#      "Inst_0000010_8.adn" ,
+#      "Inst_0000010_44.adn" ,
+#      "Inst_0000012_13.adn" ,
+#      "Inst_0000012_32.adn" ,
+#      "Inst_0000012_56.adn" ,
+#      "Inst_0000013_45.adn" ,
+#      "Inst_0000013_56.adn" ,
+#      "Inst_0000013_89.adn" ,
+#      "Inst_0000014_7.adn" ,
+#      "Inst_0000014_23.adn" ,
+#      "Inst_0000014_83.adn" ,
+#      "Inst_0000015_2.adn" ,
+#      "Inst_0000015_4.adn" ,
+#      "Inst_0000015_76.adn" ,
+#      "Inst_0000020_8.adn" ,
+#      "Inst_0000020_17.adn" ,
+#      "Inst_0000020_32.adn",
+#      "Inst_0000050_3.adn",
+#      "Inst_0000050_9.adn",
+#      "Inst_0000050_77.adn",
+#      "Inst_0000100_3.adn",
+#      "Inst_0000100_7.adn",
+#      "Inst_0000100_44.adn",
+#      "Inst_0000500_3.adn",  #~100s pour sol_2
+#      "Inst_0000500_8.adn",
+#      "Inst_0000500_88.adn",
+#      "Inst_0001000_2.adn",
+#      "Inst_0001000_7.adn",
+#      "Inst_0001000_23.adn" ,
+#      "Inst_0002000_3.adn" ,
+#      "Inst_0002000_8.adn" ,
+#      "Inst_0002000_44.adn",
+#      "Inst_0003000_1.adn",
+#      "Inst_0003000_10.adn",
+#      "Inst_0003000_25.adn",
+#      "Inst_0003000_45.adn", #10s pr prog_dyn, 7s pr dist_2
+#      "Inst_0005000_4.adn",
+#      "Inst_0005000_32.adn",
+#      "Inst_0005000_33.adn",
+#      "Inst_0008000_32.adn",
+#      "Inst_0008000_54.adn",
+#      "Inst_0008000_98.adn",
+#      "Inst_0010000_7.adn",
+#      "Inst_0010000_8.adn",
+#      "Inst_0010000_50.adn",
+#      "Inst_0015000_3.adn",
+#      "Inst_0015000_20.adn",
+#      "Inst_0015000_30.adn",
+#      "Inst_0020000_5.adn",
+#      "Inst_0020000_64.adn",
+#      "Inst_0020000_77.adn",
+#      "Inst_0050000_6.adn",
+#      "Inst_0050000_63.adn",
+#      "Inst_0050000_88.adn",
+#      "Inst_0100000_3.adn",
+#      "Inst_0100000_11.adn",
+#      "Inst_0100000_76.adn"]
+#
 # stop=False
 # stop_2 = False
 # for stuff in L:
