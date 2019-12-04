@@ -3,7 +3,7 @@
 """
 Created on Fri Nov 15 13:21:34 2019
 
-@author: 3531662   
+Mini-Projet d'Algorithmique : Alignement de Séquences
 """
 
 # =============================================================================
