@@ -222,13 +222,13 @@ def sol_2_non_opti(x,y):                # Utilisation de PROG_DYN au lieu de mot
 
 
 #Q25
-def coupure(x, y):                      # Retourne index_coupure, où couper y
-    x_cp = x.copy()                     # Pour eviter tout problemes de manipulations
+def coupure(x, y):                                # Retourne index_coupure, où couper y
+    x_cp = x.copy()                               # Pour eviter tout problemes de manipulations
     y_cp = y.copy()
     i = int(len(x) / 2)
-    index_coupure = len(y_cp)                  # On commence a la derniere colonne
+    index_coupure = len(y_cp)                     # On commence a la derniere colonne
 
-    while (len(x_cp) > i):                     # Tant qu'on n'est pas arrive a la ligne i*
+    while (len(x_cp) > i):                        # Tant qu'on n'est pas arrive a la ligne i*
         D1 = dist_2(x_cp, y_cp)[1]                # ligne i
         D2 = dist_2(x_cp[:-1], y_cp)[1]           # ligne i-1
 
@@ -236,22 +236,22 @@ def coupure(x, y):                      # Retourne index_coupure, où couper y
         val_sub = m.inf
         val_ins = m.inf
         
-        index_antifail = index_coupure                                  # Sert a verifier si index_coupure a change a la fin
-        x_antifail = x_cp.copy()                                        # Sert a verifier su x_cp a change a la fin
+        index_antifail = index_coupure            # Sert a verifier si index_coupure a change a la fin
+        x_antifail = x_cp.copy()                  # Sert a verifier su x_cp a change a la fin
         
-        if (D2[index_coupure] + c_del == D1[index_coupure]):            # Si la valeur est coherente
+        if (D2[index_coupure] + c_del == D1[index_coupure]):               # Si la valeur est coherente
             val_del = D2[index_coupure]                                    # On recupere la valeur associe a la suppression
-        if (index_coupure - 1 >= 0):                                    # Si on ne deborde pas sur la gauche du tableau
+        if (index_coupure - 1 >= 0):                                       # Si on ne deborde pas sur la gauche du tableau
             if(D2[index_coupure - 1] + c_sub(x_cp[-1], y_cp[index_coupure - 1]) == D1[index_coupure]):    # Si la valeur est coherente
                 val_sub = D2[index_coupure - 1]                            # On recupere la valeur associe a la substitution
-            if (D1[index_coupure - 1] + c_ins == D1[index_coupure]):    # Si la valeur est coherente
+            if (D1[index_coupure - 1] + c_ins == D1[index_coupure]):       # Si la valeur est coherente
                 val_ins = D1[index_coupure - 1]                            # On recupere la valeur associe a l'insertion
 
-        if min(val_del, val_sub, val_ins) != val_del:           # Si ce n'est pas une suppression
-            index_coupure -= 1                      # On s'est deplace d'une colonne vers la gauche
+        if min(val_del, val_sub, val_ins) != val_del:                      # Si ce n'est pas une suppression
+            index_coupure -= 1                                             # On s'est deplace d'une colonne vers la gauche
 
-        if min(val_del, val_sub, val_ins) != val_ins:           # Si ce n'est pas une insertion
-            x_cp = x_cp[:-1]                              # On s'est deplace d'une ligne vers le haut
+        if min(val_del, val_sub, val_ins) != val_ins:                      # Si ce n'est pas une insertion
+            x_cp = x_cp[:-1]                                               # On s'est deplace d'une ligne vers le haut
         
         if (index_antifail==index_coupure) and (x_antifail==x_cp):         # Cas ou min(val_del, val_sub, val_ins) = val_del = v_ins
             x_cp = x_cp[:-1]                                               # On force une suppression
@@ -346,8 +346,8 @@ print("FIN TEST COUPURE\n")
 # TEST SOL_2
 print("TEST SOL_2\n")
 
-x = ['A', 'G', 'T', 'A', 'C', 'G', 'C', 'A']
-y = ['T', 'A', 'T', 'G', 'C']
+# x = ['A', 'G', 'T', 'A', 'C', 'G', 'C', 'A']
+# y = ['T', 'A', 'T', 'G', 'C']
 
 trace_sol_1(x, y)
 print(sol_2(x,y))
