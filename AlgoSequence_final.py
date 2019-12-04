@@ -269,7 +269,6 @@ def sol_2(x,y):                                     # Retourne l'alignement opti
 
 
 #Q25
-# PEUT ETER AMELIORABLE AVEC UN SEUL DIST_2 ????
 def coupure(x, y):                      # Retourne index_coupure, où couper y
     i = int(len(x) / 2)
     index_coupure = len(y)                  # On commence a la derniere colonne
@@ -529,16 +528,17 @@ print("FIN TEST SOL_2\n")
 #     "Inst_0002000_8" ,
 #     "Inst_0002000_44"]
 #
-#def open_fichier_q_30(file):
-#    fichier = open("Q_30/"+file+".adn","r")
-#    Reader = []
-#    Reader = fichier.read().split("\n")
-#    x=Reader[2].split()
-#    y=Reader[3].split()
-#    fichier.close()
-#    return [x,y]
-#RES = []
-#for stuff in L:
+# def open_fichier_q_30(file):
+#     fichier = open("Q_30/"+file+".adn","r")
+#     Reader = []
+#     Reader = fichier.read().split("\n")
+#     x=Reader[2].split()
+#     y=Reader[3].split()
+#     fichier.close()
+#     return [x,y]
+#
+# RES = []
+# for stuff in L:
 #    adn = open_fichier_q_30(stuff)
 #    x,y = adn[0],adn[1]
 #    RES.append(dist_2(x,y)[0]-(len(x)-len(y))*c_del)
