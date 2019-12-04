@@ -640,9 +640,12 @@ Mémoire totale : 16340796 KiB soit 15,5837974548 GiB
 """
 ---------- TACHE D ----------
 
-* voir supra
-* a faire
-* 
+*top sur grande taille en temps raisonnable 
+Inst_0000500_3
+au total environ 1000 lettres
+1% de mémoire utilisée soit 163407.96 KiB
+Mémoire totale : 16340796 KiB soit 15,5837974548 GiB
+
 """
 
 # =============================================================================
