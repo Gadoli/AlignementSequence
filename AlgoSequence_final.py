@@ -691,7 +691,6 @@ L = ["Inst_0000010_7.adn" ,
      "Inst_0008000_32.adn",
      "Inst_0010000_7.adn"]
 
-stop=False
 stop_2 = False
 for stuff in L:
     print(stuff)
